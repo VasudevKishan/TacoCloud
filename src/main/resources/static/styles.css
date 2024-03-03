@@ -1,0 +1,18 @@
+.validationError {
+  color: red;
+}
+body {
+  width: max-content;
+  align-items: center;
+  margin: 50px;
+}
+
+.grid {
+  display: inline-grid;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.ingredient-group {
+  width: 250px;
+}

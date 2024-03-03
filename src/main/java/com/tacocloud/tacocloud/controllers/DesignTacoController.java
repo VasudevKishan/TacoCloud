@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import lombok.extern.slf4j.Slf4j;
 import com.tacocloud.tacocloud.model.Ingredient;
 import com.tacocloud.tacocloud.model.Ingredient.Type;
+
+import jakarta.validation.Valid;
+import org.springframework.validation.Errors;
+
 import com.tacocloud.tacocloud.model.Taco;
 import com.tacocloud.tacocloud.model.TacoOrder;
 // import org.springframework.web.bind.annotation.RequestBody;
@@ -42,8 +46,11 @@ public class DesignTacoController {
   }
 
   @PostMapping
-  public String processTaco(Taco taco,
+  public String processTaco(@Valid Taco taco, Errors errors,
       @ModelAttribute TacoOrder tacoOrder) {
+    if (errors.hasErrors()) {
+      return "design";
+    }
     tacoOrder.addTaco(taco);
     log.info("Processing Taco: {}", taco);
     return "redirect:/orders/current";
