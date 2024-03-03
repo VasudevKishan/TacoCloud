@@ -15,6 +15,7 @@ import com.tacocloud.tacocloud.model.Ingredient;
 import com.tacocloud.tacocloud.model.Ingredient.Type;
 import com.tacocloud.tacocloud.model.Taco;
 import com.tacocloud.tacocloud.model.TacoOrder;
+// import org.springframework.web.bind.annotation.RequestBody;
 
 @Slf4j
 @Controller
@@ -38,6 +39,14 @@ public class DesignTacoController {
     for (Type type : types) {
       model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
     }
+  }
+
+  @PostMapping
+  public String processTaco(Taco taco,
+      @ModelAttribute TacoOrder tacoOrder) {
+    tacoOrder.addTaco(taco);
+    log.info("Processing Taco: {}", taco);
+    return "redirect:/orders/current";
   }
 
   @ModelAttribute(name = "tacoOrder")
