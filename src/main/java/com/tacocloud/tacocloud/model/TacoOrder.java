@@ -1,5 +1,7 @@
 package com.tacocloud.tacocloud.model;
 
+import java.io.Serializable;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +13,14 @@ import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 @Data
-public class TacoOrder {
+public class TacoOrder implements Serializable {
+
+  private static final long serialVersionUID = 1L;
+
+  private long id;
+
+  private Date placedAt;
+
   @NotBlank(message = "Delivery name is required")
   private String deliveryName;
 
@@ -35,7 +44,7 @@ public class TacoOrder {
 
   @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
   private String ccCVV;
-  
+
   private List<Taco> tacos = new ArrayList<>();
 
   public void addTaco(Taco taco) {
