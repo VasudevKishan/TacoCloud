@@ -1,6 +1,6 @@
 package com.tacocloud.tacocloud.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +12,7 @@ public class IngredientByIdConverter implements Converter<String, Ingredient> {
   // private Map<String, Ingredient> ingredientMap = new HashMap<>();
   private IngredientReporsitory ingredientRepo;
 
-  @Autowired
+  // @Autowired
   public IngredientByIdConverter(IngredientReporsitory ingredientRepo) {
     // ingredientMap.put("FLTO",
     // new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));

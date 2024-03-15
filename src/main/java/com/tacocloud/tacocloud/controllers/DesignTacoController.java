@@ -1,11 +1,11 @@
 package com.tacocloud.tacocloud.controllers;
 
-import java.util.Arrays;
-import java.util.List;
+// import java.util.Arrays;
+// import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +34,7 @@ public class DesignTacoController {
 
   private final IngredientReporsitory ingredientRepo;
 
-  @Autowired
+  // @Autowired
   public DesignTacoController(IngredientReporsitory ingredientRepo) {
     this.ingredientRepo = ingredientRepo;
 
